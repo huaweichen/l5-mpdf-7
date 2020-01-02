@@ -3,9 +3,7 @@ namespace Kendu\Mpdf;
 
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 use Config;
-
-include base_path('vendor/mpdf/mpdf/mpdf.php');
-
+use Mpdf\Mpdf;
 
 class ServiceProvider extends BaseServiceProvider {
 
@@ -35,7 +33,7 @@ class ServiceProvider extends BaseServiceProvider {
                         }
                     }
 
-                    $mpdf=new \mPDF(
+                    $mpdf=new Mpdf([
                         Config::get('pdf.mode'),
                         Config::get('pdf.defaultFontSize'),
                         Config::get('pdf.defaultFont'),
@@ -45,7 +43,7 @@ class ServiceProvider extends BaseServiceProvider {
                         Config::get('pdf.marginBottom'),
                         Config::get('pdf.marginHeader'),
                         Config::get('pdf.Footer'),
-                        Config::get('pdf.orientation')
+                        Config::get('pdf.orientation')]
                     );
 
                     $permissions = [];

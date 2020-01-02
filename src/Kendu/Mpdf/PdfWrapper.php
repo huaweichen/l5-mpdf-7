@@ -1,6 +1,8 @@
 <?php
 namespace Kendu\Mpdf;
 
+use Mpdf\Mpdf;
+
 /**
  * A Laravel wrapper for mPDF
  *
@@ -9,7 +11,7 @@ namespace Kendu\Mpdf;
  */
 class PdfWrapper {
 
-    /** @var \Mpdf  */
+    /** @var Mpdf  */
     protected $mpdf;
     protected $rendered = false;
     protected $options;
